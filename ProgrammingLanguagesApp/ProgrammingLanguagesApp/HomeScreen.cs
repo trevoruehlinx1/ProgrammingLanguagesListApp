@@ -26,10 +26,11 @@ namespace ProgrammingLanguagesApp
 
         protected void CreateTableItems()
         {
-            List<string> tableItems = new List<string>();
+            List<ProgrammingLanguage> tableItems = new List<ProgrammingLanguage>();
             foreach(var pl in ProgrammingLanguage.LanguageList)
             {
-                tableItems.Add(pl.Name +" "+ pl.Date);
+                tableItems.Add(pl);
+                //tableItems.Add(pl.Name +" "+ pl.Date);
             }
             table.Source = new TableSource(tableItems.ToArray(), this);
         }

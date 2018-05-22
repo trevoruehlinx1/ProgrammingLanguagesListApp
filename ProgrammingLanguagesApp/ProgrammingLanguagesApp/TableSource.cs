@@ -5,11 +5,11 @@ namespace ProgrammingLanguagesApp
 {
     public class TableSource:UITableViewSource
     {
-        protected string[] tableItems;
+        protected ProgrammingLanguage[] tableItems;
         protected string cellIdentifier = "TableCell";
         HomeScreen owner;
 
-        public TableSource(string[] items, HomeScreen owner)
+        public TableSource(ProgrammingLanguage[] items, HomeScreen owner)
         {
             tableItems = items;
             this.owner = owner;
@@ -29,9 +29,10 @@ namespace ProgrammingLanguagesApp
         // Called when a row is touched
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            UIAlertController okAlertController = UIAlertController.Create("Row Selected", tableItems[indexPath.Row].ToString(), UIAlertControllerStyle.Alert);
-            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-            owner.PresentViewController(okAlertController, true, null);
+            UIAlertController infoAlertController = UIAlertController.Create("Developed By " + tableItems[indexPath.Row].ChiefDevs,"Preceded By " + tableItems[indexPath.Row].InfluencedBy, UIAlertControllerStyle.Alert);
+            infoAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+            //infoAlertController.AddAction(UIAlertAction.Create("on" + , UIAlertActionStyle.Cancel, null));
+            owner.PresentViewController(infoAlertController, true, null);
 
             tableView.DeselectRow(indexPath, true);
         }
@@ -39,13 +40,13 @@ namespace ProgrammingLanguagesApp
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
-            string item = tableItems[indexPath.Row];
+            ProgrammingLanguage item = tableItems[indexPath.Row];
 
             //if there are no cells to reuse, create a new one
             if (cell == null)
             { cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
 
-            cell.TextLabel.Text = item.ToString();
+            cell.TextLabel.Text = item.Name +" "+ item.Date;
 
             return cell;
         }
