@@ -1,16 +1,24 @@
 ﻿<Properties StartupConfiguration="{04026344-B2FE-425B-88FF-6A6FFB2638FF}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ProgrammingLanguagesApp/TableSource.cs">
     <Files>
-      <File FileName="ProgrammingLanguagesApp/TableSource.cs" Line="35" Column="74" />
-      <File FileName="ProgrammingLanguagesApp/HomeScreen.cs" Line="29" Column="80" />
+      <File FileName="ProgrammingLanguagesApp/TableSource.cs" Line="69" Column="1" />
+      <File FileName="ProgrammingLanguagesApp/HomeScreen.cs" Line="37" Column="1" />
       <File FileName="ProgrammingLanguagesApp/ProgrammingLanguage.cs" Line="20" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/student/Desktop/tu/ProgrammingLanguagesListApp/ProgrammingLanguagesApp/ProgrammingLanguagesApp/TableSource.cs" relfile="ProgrammingLanguagesApp/TableSource.cs" line="73" column="1" />
+      <Breakpoint file="/Users/student/Desktop/tu/ProgrammingLanguagesListApp/ProgrammingLanguagesApp/ProgrammingLanguagesApp/TableSource.cs" relfile="ProgrammingLanguagesApp/TableSource.cs" line="69" column="1" />
+      <Breakpoint file="/Users/student/Desktop/tu/ProgrammingLanguagesListApp/ProgrammingLanguagesApp/ProgrammingLanguagesApp/TableSource.cs" relfile="ProgrammingLanguagesApp/TableSource.cs" line="55" column="1" />
+      <Breakpoint file="/Users/student/Desktop/tu/ProgrammingLanguagesListApp/ProgrammingLanguagesApp/ProgrammingLanguagesApp/TableSource.cs" relfile="ProgrammingLanguagesApp/TableSource.cs" line="45" column="1" />
+      <Breakpoint file="/Users/student/Desktop/tu/ProgrammingLanguagesListApp/ProgrammingLanguagesApp/ProgrammingLanguagesApp/TableSource.cs" relfile="ProgrammingLanguagesApp/TableSource.cs" line="41" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../ProgrammingLanguagesApp/HomeScreen.cs" line="35" offsetX="449" offsetY="612" expression="tableItems" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ProgrammingLanguagesApp PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.21B07EEC-2E6B-4154-B5A8-E90E70D2B5A9" automaticSigning="False" />
 </Properties>

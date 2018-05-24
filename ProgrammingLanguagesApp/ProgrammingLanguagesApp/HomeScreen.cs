@@ -2,6 +2,7 @@
 using CoreGraphics;
 using System.Collections.Generic;
 using UIKit;
+using System.Linq;
 namespace ProgrammingLanguagesApp
 {
     public class HomeScreen : UIViewController
@@ -30,8 +31,8 @@ namespace ProgrammingLanguagesApp
             foreach(var pl in ProgrammingLanguage.LanguageList)
             {
                 tableItems.Add(pl);
-                //tableItems.Add(pl.Name +" "+ pl.Date);
             }
+            tableItems = tableItems.OrderBy(pl => pl.Name).ToList();
             table.Source = new TableSource(tableItems.ToArray(), this);
         }
 

@@ -1,10 +1,15 @@
 ﻿using System;
 using UIKit;
 using Foundation;
+using System.Linq;
+using System.Collections.Generic;
+
 namespace ProgrammingLanguagesApp
 {
     public class TableSource:UITableViewSource
     {
+        string[] keys;
+        Dictionary<string, List<ProgrammingLanguage>> indexedTableItems;
         protected ProgrammingLanguage[] tableItems;
         protected string cellIdentifier = "TableCell";
         HomeScreen owner;
@@ -13,23 +18,37 @@ namespace ProgrammingLanguagesApp
         {
             tableItems = items;
             this.owner = owner;
+            indexedTableItems = new Dictionary<string, List<ProgrammingLanguage>>();
+
+            foreach(var pl in tableItems)
+            {
+                var key = pl.Name[0].ToString();
+                if(indexedTableItems.ContainsKey(key))
+                {
+                    indexedTableItems[key].Add(pl);
+                }
+                   else
+                {
+                    indexedTableItems.Add(key, new List<ProgrammingLanguage>() { pl });
+                }
+                keys = indexedTableItems.Keys.ToArray();
+            }
 
         }
-        // Called by the TableView to determine how many sections(groups) there are.
+
         public override nint NumberOfSections(UITableView tableView)
         {
-            return 1;
+            return keys.Length;
         }
-        // Called by the TableView to determine how many cells to create for that particular section.
-
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return tableItems.Length;
+            return indexedTableItems[keys[section]].Count;
         }
+
         // Called when a row is touched
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            UIAlertController infoAlertController = UIAlertController.Create("Developed By " + tableItems[indexPath.Row].ChiefDevs,"Preceded By " + tableItems[indexPath.Row].InfluencedBy, UIAlertControllerStyle.Alert);
+            UIAlertController infoAlertController = UIAlertController.Create("Developed By " + tableItems[indexPath.Row].ChiefDevs,"Inspired By " + tableItems[indexPath.Row].InfluencedBy, UIAlertControllerStyle.Alert);
             infoAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
             //infoAlertController.AddAction(UIAlertAction.Create("on" + , UIAlertActionStyle.Cancel, null));
             owner.PresentViewController(infoAlertController, true, null);
@@ -46,9 +65,14 @@ namespace ProgrammingLanguagesApp
             if (cell == null)
             { cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
 
-            cell.TextLabel.Text = item.Name +" "+ item.Date;
+            cell.TextLabel.Text = indexedTableItems[keys[indexPath.Section]][indexPath.Row].Name +" "+
+                                    indexedTableItems[keys[indexPath.Section]][indexPath.Row].Date;
 
             return cell;
         }
-    }
+		public override string[] SectionIndexTitles(UITableView tableView)
+		{
+            return keys;
+		}
+	}
 }
